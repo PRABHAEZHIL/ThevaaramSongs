@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "528284589425",
+    "project_id": "thevaaramsongs",
+    "storage_bucket": "thevaaramsongs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528284589425:android:56bbc931d74b5fbb442ad0",
+        "android_client_info": {
+          "package_name": "com.kvep.thevaaramsongs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528284589425-11pq0h76s43dhti50nlvmrhc6j4huudl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBfNOFDUFNNmz08yuE-qpTVCa78mSK-PE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528284589425-11pq0h76s43dhti50nlvmrhc6j4huudl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
