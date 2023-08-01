@@ -6,8 +6,9 @@ import com.kvep.thevaaramsongs.repository.mapper.Track
 import com.kvep.thevaaramsongs.repository.mapper.toTrack
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class TrackRepositoryImpl(private val musicDatabase: MusicDatabase) : TrackRepository {
+class TrackRepositoryImpl @Inject constructor(private val musicDatabase: MusicDatabase) : TrackRepository {
 
   private var tracks= mutableListOf<Track>()// List<Track>
     private lateinit var allSongs: List<Song>
