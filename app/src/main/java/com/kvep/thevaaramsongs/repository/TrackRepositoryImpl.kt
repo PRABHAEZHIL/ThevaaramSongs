@@ -10,18 +10,16 @@ import javax.inject.Inject
 
 class TrackRepositoryImpl @Inject constructor(private val musicDatabase: MusicDatabase) : TrackRepository {
 
-  private var tracks= mutableListOf<Track>()// List<Track>
+
     private lateinit var allSongs: List<Song>
 
-    suspend fun fetchMediaData() = withContext(Dispatchers.IO) {
+    override suspend fun fetchMediaData() = withContext(Dispatchers.IO) {
         allSongs = musicDatabase.getAllSongs()
+
         val allTracks = allSongs.map {
             it.toTrack()
         }
-        tracks=allTracks.toMutableList()
+        return@withContext allTracks.toMutableList()
     }
 
-    override fun getTrackList(): List<Track> {
-        return tracks
-    }
 }

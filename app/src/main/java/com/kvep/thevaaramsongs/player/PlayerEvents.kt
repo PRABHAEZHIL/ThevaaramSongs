@@ -1,6 +1,7 @@
 package com.kvep.thevaaramsongs.player
 
 import com.kvep.thevaaramsongs.data.model.Song
+import com.kvep.thevaaramsongs.repository.mapper.Track
 
 /**
  * An interface for handling player events such as play, pause, next, previous, and seek bar position changes.
@@ -27,7 +28,7 @@ interface PlayerEvents {
      *
      * @param track The track that was clicked.
      */
-    fun onTrackClick(song: Song)
+    fun onTrackClick(tract: Track)
 
     /**
      * Invoked when the position of the seek bar has changed. The new position is provided as a parameter.
@@ -35,5 +36,6 @@ interface PlayerEvents {
      * @param position The new position of the seek bar.
      */
     fun onSeekBarPositionChanged(position: Long)
+
 
 }
