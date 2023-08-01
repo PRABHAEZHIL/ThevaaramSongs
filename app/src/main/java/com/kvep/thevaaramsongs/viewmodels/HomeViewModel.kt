@@ -1,14 +1,11 @@
 package com.kvep.thevaaramsongs.viewmodels
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.kvep.thevaaramsongs.data.model.Song
 import com.kvep.thevaaramsongs.player.MyPlayer
 import com.kvep.thevaaramsongs.player.PlaybackState
 import com.kvep.thevaaramsongs.player.PlayerEvents

@@ -18,7 +18,8 @@ class DataModule {
     fun provideTrackRepository(trackRepository: TrackRepositoryImpl): TrackRepository {
         return trackRepository
     }
-    @ServiceScoped
+
     @Provides
+    @Singleton
     fun provideMusicDatabase()=MusicDatabase()
 }
