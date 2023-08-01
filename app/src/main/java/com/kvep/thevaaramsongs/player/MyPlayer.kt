@@ -6,6 +6,7 @@ import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
+
 /**
  * A custom player class that provides several convenience methods for
  * controlling playback and monitoring the state of an underlying ExoPlayer.
@@ -38,6 +39,7 @@ class MyPlayer @Inject constructor(private val player: ExoPlayer): Player.Listen
      * @param trackList The list of media items to play.
      */
     fun iniPlayer(trackList: MutableList<MediaItem>) {
+
         player.addListener(this)
         player.setMediaItems(trackList)
         player.prepare()
@@ -50,6 +52,7 @@ class MyPlayer @Inject constructor(private val player: ExoPlayer): Player.Listen
      * @param isTrackPlay If true, playback will start immediately.
      */
     fun setUpTrack(index: Int, isTrackPlay: Boolean) {
+
         if (player.playbackState == Player.STATE_IDLE) player.prepare()
         player.seekTo(index, 0)
         if (isTrackPlay) player.playWhenReady = true

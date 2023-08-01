@@ -1,5 +1,6 @@
 package com.kvep.thevaaramsongs.viewmodels
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -49,6 +50,7 @@ class HomeViewModel @Inject constructor(
     val playbackState:StateFlow<PlaybackState> get()=_playbackState
 
     private var isAuto:Boolean=false
+
     private val serviceJob = Job()
     private val serviceScope = CoroutineScope(Dispatchers.Main + serviceJob)
 
@@ -57,12 +59,14 @@ class HomeViewModel @Inject constructor(
 
         serviceScope.launch {
          _tracks.addAll(trackRepository.fetchMediaData())
+            myPlayer.iniPlayer(tracks.toMediaItemList())
+            observePlayerState()
         }
-        myPlayer.iniPlayer(tracks.toMediaItemList())
-        observePlayerState()
+
 
     }
     private fun observePlayerState(){
+
         viewModelScope.collectPlayerState(myPlayer,::updateState)
     }
     private fun updateState(state: PlayerStates){
@@ -87,13 +91,17 @@ class HomeViewModel @Inject constructor(
         if(selectedTrackIndex==-1 ||selectedTrackIndex!=index){
             _tracks.resetTracks()
             selectedTrackIndex=index
+
             setUpTrack()
         }
 
     }
     private fun setUpTrack(){
+
+
         if(!isAuto) myPlayer.setUpTrack(selectedTrackIndex,isTrackPlay)
         isAuto=false
+
     }
     private fun updatePlaybackState(state: PlayerStates){
         playbackStateJob?.cancel()
@@ -112,6 +120,7 @@ class HomeViewModel @Inject constructor(
     }
 
     override fun onTrackClick(track: Track) {
+
        onTrackSelected(tracks.indexOf(track))
     }
 

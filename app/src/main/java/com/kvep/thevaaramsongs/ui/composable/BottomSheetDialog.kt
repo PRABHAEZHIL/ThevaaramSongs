@@ -39,6 +39,15 @@ fun BottomSheetDialog(
         modifier= Modifier.fillMaxWidth()
     ){
        TrackInfo(trackImage = selectedTrack.trackImage, trackName = selectedTrack.trackName)
+        TrackProgressSlider(playbackState = playbackState) {
+            playerEvents.onSeekBarPositionChanged(it)
+        }
+        TrackControls(
+            selectedTrack = selectedTrack,
+            onPreviousClick = playerEvents::onPreviousClick,
+            onPlayPauseClick = playerEvents::onPlayPauseClick,
+            onNextClick = playerEvents::onNextClick
+        )
     }
 
 }

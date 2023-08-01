@@ -99,7 +99,7 @@ fun TrackList(
                             TrackListItem(
                                 track = it,
                                 onTrackClick = {
-                                    Log.i("MY_TAG","trackclicked")
+
                                     playerEvents.onTrackClick(it) }
                             )
                         }
